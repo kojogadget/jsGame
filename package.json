@@ -1,5 +1,5 @@
 {
-  "name": "The Game",
+  "name": "Game",
   "version": "1.0.0",
   "description": "Converting a simple game from Python to html/css/js",
   "browserslist": "last 10 versions",
