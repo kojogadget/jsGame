@@ -13,19 +13,15 @@ body {
   }
 }
 
-.message,
-.magic {
+.message {
   list-style: none;
 
-  &__line {
+  &__text {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     letter-spacing: 0.25rem;
     font-size: 1.6rem;
-  }
-
-  &__text {
     overflow: hidden;
     white-space: nowrap;
     -webkit-animation: typing 1s steps(30, end);

@@ -27,18 +27,14 @@ body {
   font-size: 7rem;
   color: #fff; }
 
-.message,
-.magic {
+.message {
   list-style: none; }
-  .message__line,
-  .magic__line {
+  .message__text {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     letter-spacing: 0.25rem;
-    font-size: 1.6rem; }
-  .message__text,
-  .magic__text {
+    font-size: 1.6rem;
     overflow: hidden;
     white-space: nowrap;
     -webkit-animation: typing 1s steps(30, end);
@@ -127,7 +123,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end; }
-  .message__line {
+  .message__text {
     margin-top: 2.5rem;
     max-width: 100rem; }
 
