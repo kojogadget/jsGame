@@ -1,9 +1,14 @@
 const player = {};
 
+// Text input section
 const command = document.getElementById("command");
 const responsSection = document.querySelector(".respons");
 const responsBtn = document.querySelector(".respons__btn");
+
+// Options buttons
 const optionsSection = document.querySelector(".options");
+
+// Message section
 const welcomeMessage = document.querySelector(".message__line--2");
 const welcomeMessageText = document.querySelector(".message__text--2");
 

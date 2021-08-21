@@ -27,19 +27,51 @@ body {
   font-size: 7rem;
   color: #fff; }
 
-.message {
+.message,
+.magic {
   list-style: none; }
-  .message__line {
+  .message__line,
+  .magic__line {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     letter-spacing: 0.25rem;
     font-size: 1.6rem; }
-  .message__text {
+  .message__text,
+  .magic__text {
     overflow: hidden;
     white-space: nowrap;
     -webkit-animation: typing 1s steps(30, end);
     animation: typing 1s steps(30, end); }
+
+.btn {
+  height: 15rem;
+  width: 15rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.3); }
+  .btn:hover {
+    transform: translateY(-3px);
+    background-color: rgba(204, 204, 204, 0.5); }
+  .btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.3); }
+
+.magic8ball {
+  height: 100%;
+  width: 100%;
+  max-width: 150rem; }
+  .magic8ball h2 {
+    text-align: center; }
+
+.magic {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end; }
 
 .text-box {
   height: 80%;
@@ -94,54 +126,32 @@ body {
   margin-bottom: 3rem;
   list-style: none; }
   .options__btn {
-    height: 15rem;
-    width: 15rem;
     font-size: 1.8rem;
     padding: 1rem;
     margin: 1rem 1rem;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.3);
     transition: all 0.2s; }
-    .options__btn:hover {
-      transform: translateY(-3px);
-      background-color: rgba(204, 204, 204, 0.5); }
-    .options__btn:active {
-      transform: translateY(3px);
-      box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.3); }
 
 .respons {
   height: 20rem;
   width: 100%;
+  margin-bottom: 1rem;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center; }
   .respons__btn {
-    height: 15rem;
-    width: 15rem;
+    font-size: 5rem;
     margin-left: 6rem;
-    border-radius: 50%;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: all 0.4s;
-    font-size: 5rem; }
+    transition: all 0.4s; }
     .respons__btn:hover {
-      transform: rotate(360deg);
-      background-color: rgba(204, 204, 204, 0.5); }
-    .respons__btn:active {
-      transform: translateY(5px);
-      box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.3); }
+      transform: rotate(360deg) translateY(-3px); }
   .respons__text {
     display: block;
-    height: 15rem;
+    height: 12rem;
     width: 45vw;
     max-width: 70rem;
     border-radius: 0.5rem;
     border: none;
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
     font-size: 5rem;
     color: #555555;
     text-align: center;
