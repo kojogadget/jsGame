@@ -13,18 +13,29 @@
   <body class="container">
     <h1 class="header--1">The Game</h1>
 
-    <div class="message">
-      <p class="message__line">
-        <span>>&ThickSpace;</span>
-        <span class="message__text">Hi! What is your name?</span>
-      </p>
-    </div>
+    <ul class="message">
+      <li>
+        <p class="message__line message__line--1">
+          <span>>&ThickSpace;</span>
+          <span class="message__text message__text--1">
+            Hi! What is your name?
+          </span>
+        </p>
+      </li>
+
+      <li>
+        <p class="message__line message__line--2 hidden">
+          <span>>&ThickSpace;</span>
+          <span class="message__text message__text--2"></span>
+        </p>
+      </li>
+    </ul>
 
     <div class="respons">
-      <button class="respons__btn btn">&rarr;</button>
+      <button class="respons__btn btn hidden">&rarr;</button>
       <input
         type="text"
-        class="respons__text hidden"
+        class="respons__text"
         placeholder="Command"
         id="command"
       />
