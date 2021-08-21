@@ -1,15 +1,20 @@
 .respons {
   height: 20rem;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
 
   &__btn {
     height: 15rem;
     width: 15rem;
+    margin-left: 6rem;
     border-radius: 50%;
     border: none;
     background-color: rgba($color-white, 0.5);
     box-shadow: 0 1rem 5rem rgba($color-black, 0.3);
     cursor: pointer;
-    transition: all 0.6s;
+    transition: all 0.4s;
 
     font-size: 5rem;
 
