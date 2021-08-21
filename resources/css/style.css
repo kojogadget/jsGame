@@ -41,6 +41,18 @@ body {
     -webkit-animation: typing 1s steps(30, end);
     animation: typing 1s steps(30, end); }
 
+.text-box {
+  height: 80%;
+  width: 80%;
+  padding: 1.5rem 6rem;
+  background-color: rgba(204, 204, 204, 0.2);
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.7);
+  justify-self: center;
+  display: flex;
+  justify-content: center; }
+
 .container {
   display: grid;
   grid-template-rows: 30vh 1fr 30vh;
@@ -58,32 +70,33 @@ body {
   box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.7); }
 
 .message {
-  height: 80%;
-  width: 80%;
+  height: 100%;
+  width: 100%;
+  max-width: 150rem;
   justify-self: center;
   overflow: hidden;
-  background-color: rgba(204, 204, 204, 0.2);
-  padding: 1.5rem 6rem;
   border-radius: 3px;
-  -webkit-box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end; }
   .message__line {
-    margin-top: 2.5rem; }
+    margin-top: 2.5rem;
+    max-width: 100rem; }
 
 .options {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   width: 100%;
+  max-width: 180rem;
   list-style: none; }
   .options__btn {
     height: 15rem;
     width: 15rem;
     font-size: 1.8rem;
     padding: 1rem;
+    margin: 1rem 1rem;
     border: none;
     border-radius: 50%;
     cursor: pointer;

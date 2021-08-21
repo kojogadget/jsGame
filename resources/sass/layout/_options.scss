@@ -1,8 +1,10 @@
 .options {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 
   width: 100%;
+  max-width: 180rem;
 
   list-style: none;
 
@@ -11,6 +13,7 @@
     width: 15rem;
     font-size: 1.8rem;
     padding: 1rem;
+    margin: 1rem 1rem;
 
     border: none;
     border-radius: 50%;
