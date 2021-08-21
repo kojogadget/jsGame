@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -9,15 +10,23 @@ html {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(to top left, #28b487, #7dd56f); }
+  background: linear-gradient(to top left, #1d4350, #a43931); }
 
 body {
-  font-family: sans-serif;
-  color: #333;
+  font-family: "Press Start 2P", sans-serif;
+  color: #fff;
   line-height: 1.5; }
+
+.header--1 {
+  background-color: rgba(204, 204, 204, 0.2);
+  padding: 1.5rem 6rem;
+  border-radius: 100rem;
+  box-shadow: 0 0.5rem 5rem black;
+  font-size: 7rem;
+  color: #fff; }
 
 .container {
   display: grid;
-  grid-template-rows: 20vh 1fr 35vh;
+  grid-template-rows: 25vh 1fr 35vh;
   justify-content: center;
   align-items: center; }

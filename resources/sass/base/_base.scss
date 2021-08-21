@@ -11,5 +11,9 @@ html {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(to top left, #28b487, #7dd56f);
+  background: linear-gradient(
+    to top left,
+    $color-background-1,
+    $color-background-2
+  );
 }
