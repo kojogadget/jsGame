@@ -13,8 +13,16 @@
   <body class="container">
     <h1 class="header--1">The Game</h1>
 
+    
+
     <div class="text-box">
-      <ul class="message hidden">
+      <button class="exit hidden">
+        <svg class="exit__icon">
+          <use xlink:href="resources/img/sprite.svg#icon-cross"></use>
+        </svg>
+      </button>
+
+      <ul class="message ">
         <li>
           <p class="message__line message__line--1">
             <span>>&ThickSpace;</span>
@@ -32,8 +40,9 @@
         </li>
       </ul>
 
-      <div class="magic8ball">
+      <div class="magic8ball hidden">
         <h2 class="heading--2">Magic 8 Ball</h2>
+        
         <ul class="magic">
           <li class="magic__line">
             <span>>&ThickSpace;</span>
