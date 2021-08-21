@@ -1,0 +1,6 @@
+.container {
+  display: grid;
+  grid-template-rows: 20vh 1fr 35vh;
+  justify-content: center;
+  align-items: center;
+}
