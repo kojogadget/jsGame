@@ -1,0 +1,27 @@
+.respons {
+  height: 20rem;
+
+  &__btn {
+    border: none;
+  }
+
+  &__text {
+    display: block;
+    height: 15rem;
+    width: 45vw;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 1.5rem 2rem;
+    font-size: 1.8rem;
+    text-align: center;
+    background-color: rgba($color-white, 0.5);
+    box-shadow: 0 0.5rem 5rem rgba($color-black, 0.3);
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      transform: translateY(-5px);
+      box-shadow: 0 1rem 5rem rgba($color-black, 0.4);
+    }
+  }
+}

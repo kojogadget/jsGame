@@ -5,6 +5,9 @@
   to {
     width: 100%; } }
 
+.hidden {
+  display: none; }
+
 * {
   margin: 0;
   padding: 0;
@@ -30,7 +33,9 @@ body {
 .message__line {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  letter-spacing: 0.25rem;
+  font-size: 1.6rem; }
 
 .message__text {
   overflow: hidden;
@@ -41,10 +46,13 @@ body {
 .container {
   display: grid;
   grid-template-rows: 25vh 1fr 35vh;
-  justify-content: center;
+  grid-template-columns: 1fr;
+  justify-items: center;
   align-items: center; }
 
 .header--1 {
+  width: max-content;
+  justify-self: center;
   background-color: rgba(204, 204, 204, 0.2);
   padding: 1.5rem 6rem;
   border-radius: 100rem;
@@ -53,8 +61,36 @@ body {
 
 .message {
   height: 70%;
+  width: 80%;
+  justify-self: center;
+  overflow: hidden;
   background-color: rgba(204, 204, 204, 0.2);
   padding: 1.5rem 6rem;
   border-radius: 3px;
   -webkit-box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.7); }
+  box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  justify-content: flex-end; }
+
+.respons {
+  height: 20rem; }
+  .respons__btn {
+    border: none; }
+  .respons__text {
+    display: block;
+    height: 15rem;
+    width: 45vw;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 1.5rem 2rem;
+    font-size: 1.8rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0.5rem 5rem rgba(0, 0, 0, 0.3);
+    transition: all 0.2s; }
+    .respons__text:focus {
+      outline: none;
+      transform: translateY(-5px);
+      box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.4); }
