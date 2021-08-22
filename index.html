@@ -13,8 +13,6 @@
   <body class="container">
     <h1 class="header--1">The Game</h1>
 
-    
-
     <div class="text-box">
       <button class="exit hidden">
         <svg class="exit__icon">
@@ -22,10 +20,11 @@
         </svg>
       </button>
 
-      <ul class="message ">
-        <li class="message__line message__text">
-            > Hi! What is your name?
-        </li>
+      <div class="message">
+        <ul class="message__list">
+          <li class="message__text">> Hi! What is your name?</li>
+        </ul>
+      </div>
     </div>
 
     <ul class="options hidden">
@@ -52,7 +51,9 @@
         </button>
       </li>
       <li class="options__item options__item--7">
-        <button class="options__btn btn" id="drawsomething">Draw Something</button>
+        <button class="options__btn btn" id="drawsomething">
+          Draw Something
+        </button>
       </li>
     </ul>
 

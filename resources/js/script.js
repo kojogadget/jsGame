@@ -35,8 +35,6 @@ const m8bBtn = document.getElementById('magic8ball');
 
 // Message section
 const messageSection = document.querySelector('.message');
-const ul = document.querySelector('.message');
-const li = document.createElement('li');
 
 const welcomeMessage = document.querySelector('.message__line--2');
 const welcomeMessageText = document.querySelector('.message__text--2');
@@ -49,14 +47,18 @@ const m8bText = document.querySelector('.magic__text');
 const exitBtn = document.querySelector('.exit');
 
 const addHeading = function (text) {
+  let ul = document.querySelector('.message__list');
+  let li = document.createElement('li');
   li.appendChild(document.createTextNode(text));
-  li.setAttribute('class', 'heading--2');
+  li.setAttribute('class', 'header--2');
   ul.appendChild(li);
 };
 
 const addLine = function (text) {
-  li.appendChild(document.createTextNode(text));
-  li.setAttribute('class', 'message__line message__text');
+  let ul = document.querySelector('.message__list');
+  let li = document.createElement('li');
+  li.appendChild(document.createTextNode('> ' + text));
+  li.setAttribute('class', 'message__text');
   ul.appendChild(li);
 };
 
@@ -64,7 +66,7 @@ const addName = function () {
   player.name = command.value;
   command.value = '';
 
-  addLine(`> Welcome, ${player.name}! What program do you want to try?`);
+  addLine(`Welcome, ${player.name}! What program do you want to try?`);
   responsSection.classList.add('hidden');
   optionsSection.classList.remove('hidden');
 };
