@@ -11,7 +11,10 @@ const addHeading = function (text) {
 const addLine = function (text) {
   let ul = document.querySelector('.message__list');
   let li = document.createElement('li');
-  li.appendChild(document.createTextNode('> ' + text));
+
+  text !== ' '
+    ? li.appendChild(document.createTextNode('> ' + text))
+    : li.appendChild(document.createTextNode(text));
   li.setAttribute('class', 'message__text');
   ul.appendChild(li);
 };
