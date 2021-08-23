@@ -1,11 +1,19 @@
 'use strict';
 
 const exit = function () {
+  let exitText = [
+    `Do you wish to try something else?`,
+    `Okay ${player.name}, what's next?`,
+    `Lets do another one!`,
+    `Are you done?`,
+  ];
+
   responsInput.value = '';
+  response = Math.trunc(Math.random() * exitText.length);
   addLine(` `);
   addLine(` `);
   addLine(` `);
-  addLine(`Do you wish to try something else?`);
+  addLine(exitText[response]);
   responsSection.classList.add('hidden');
   optionsSection.classList.remove('hidden');
   messageSection.classList.remove('active');
