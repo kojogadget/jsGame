@@ -32,14 +32,11 @@ const responsBtn = document.querySelector('.respons__btn');
 // Options buttons
 const optionsSection = document.querySelector('.options');
 const m8bBtn = document.getElementById('magic8ball');
+const collatzBtn = document.getElementById('collatz');
 
 // Message section
 const messageSection = document.querySelector('.message');
 const messageActive = document.querySelector('.text-box');
-
-// Magic 8 Ball section
-const m8bSection = document.querySelector('.magic8ball');
-const m8bText = document.querySelector('.magic__text');
 
 // Exit button
 const exitBtn = document.querySelector('.exit');

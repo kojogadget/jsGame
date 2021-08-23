@@ -1,4 +1,5 @@
 'use strict';
+
 // Controlling by keyboard
 responsInput.addEventListener('keydown', function (e) {
   if (
@@ -13,6 +14,12 @@ responsInput.addEventListener('keydown', function (e) {
     messageSection.classList.contains('m8b')
   ) {
     question();
+  } else if (
+    e.key === 'Enter' &&
+    responsInput.value !== '' &&
+    messageSection.classList.contains('collatz')
+  ) {
+    collatz();
   }
 });
 
@@ -25,5 +32,10 @@ responsBtn.addEventListener('click', function () {
     messageSection.classList.contains('m8b')
   ) {
     question();
+  } else if (
+    responsInput.value !== '' &&
+    messageSection.classList.contains('collatz')
+  ) {
+    collatz();
   }
 });

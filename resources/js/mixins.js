@@ -1,6 +1,12 @@
 'use strict';
 
 const exit = function () {
+  if (messageSection.classList.contains('m8b')) {
+    messageSection.classList.remove('m8b');
+  } else if (messageSection.classList.contains('collatz')) {
+    messageSection.classList.remove('collatz');
+  }
+
   let exitText = [
     `Do you wish to try something else?`,
     `Okay ${player.name}, what's next?`,
