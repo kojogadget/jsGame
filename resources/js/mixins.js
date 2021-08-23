@@ -11,3 +11,14 @@ const exit = function () {
   messageSection.classList.remove('active');
   exitBtn.classList.add('hidden');
 };
+
+const active = function () {
+  optionsSection.classList.add('hidden');
+  responsSection.classList.remove('hidden');
+  messageSection.classList.add('active');
+  exitBtn.classList.remove('hidden');
+};
+
+exitBtn.addEventListener('click', function () {
+  exit();
+});

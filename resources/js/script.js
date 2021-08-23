@@ -1,12 +1,5 @@
 'use strict';
 
-const question = function () {
-  responsInput.value = '';
-
-  response = Math.trunc(Math.random() * magicAnswer.length);
-  addLine(magicAnswer[response]);
-};
-
 // Controlling by keyboard
 responsInput.addEventListener('keydown', function (e) {
   if (
@@ -34,18 +27,4 @@ responsBtn.addEventListener('click', function () {
   ) {
     question();
   }
-});
-
-m8bBtn.addEventListener('click', function () {
-  optionsSection.classList.add('hidden');
-  responsSection.classList.remove('hidden');
-  exitBtn.classList.remove('hidden');
-  messageSection.classList.add('active');
-  addHeading('Magic 8 Ball');
-  addLine('Ask me a question!');
-  responsInput.placeholder = `Question`;
-});
-
-exitBtn.addEventListener('click', function () {
-  exit();
 });
