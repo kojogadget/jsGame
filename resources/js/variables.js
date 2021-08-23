@@ -9,18 +9,18 @@ let line = 1;
 
 // Arrays
 const magicAnswer = [
-  'Ikke sånn som du ser ut i dag...',
-  'Ta deg en runde.',
-  'Ja!',
-  'Nei..',
-  'Dårlig spørsmål..next!',
-  'Vi får se.',
-  'Kanskje det.',
-  'Vil du heller ha en klem?',
-  'Tenk deg om..',
+  'Not with that look...',
+  'Get out of here',
+  'Yes!',
+  'No..',
+  'Dum question..next!',
+  `We'll see`,
+  'Maybe',
+  'Do you need a hug?',
+  'Think about it..',
   'Hysj',
-  'Æsj!',
-  'Hva mener du egentlig? Dumme jævel..',
+  'Ew!',
+  'What is your point? Stupid..',
   'k',
 ];
 
@@ -35,6 +35,7 @@ const m8bBtn = document.getElementById('magic8ball');
 
 // Message section
 const messageSection = document.querySelector('.message');
+const messageActive = document.querySelector('.text-box');
 
 // Magic 8 Ball section
 const m8bSection = document.querySelector('.magic8ball');

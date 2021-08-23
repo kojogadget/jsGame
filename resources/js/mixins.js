@@ -22,3 +22,9 @@ const active = function () {
 exitBtn.addEventListener('click', function () {
   exit();
 });
+
+document.addEventListener('keydown', function (e) {
+  if (messageSection.classList.contains('active') && e.key === 'Escape') {
+    exit();
+  }
+});
