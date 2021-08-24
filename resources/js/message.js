@@ -29,3 +29,14 @@ const addLineMore = function (text) {
   li.setAttribute('class', 'message__text--2');
   ul.appendChild(li);
 };
+
+const addLineCollatz = function (text) {
+  let ul = document.querySelector('.message__list');
+  let li = document.createElement('li');
+
+  text !== ' '
+    ? li.appendChild(document.createTextNode('  ' + text))
+    : li.appendChild(document.createTextNode(text));
+  li.setAttribute('class', 'message__text--3');
+  ul.appendChild(li);
+};

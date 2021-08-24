@@ -15,4 +15,37 @@ collatzBtn.addEventListener('click', function () {
   responsInput.placeholder = `Number`;
 });
 
-const collatz = function () {};
+const collatz = function () {
+  // if (typeof Number(responsInput.value) === 'number') {
+  //   collatzNumber = Number(responsInput.value);
+
+  //   while (collatzNumber !== 1) {
+  //     if (collatzNumber % 2 === 0) {
+  //       addLine(collatzNumber);
+  //       collatzNumber = collatzNumber / 2;
+  //     } else {
+  //       addLine(collatzNumber);
+  //       collatzNumber = collatzNumber * 3 + 1;
+  //     }
+  //   }
+  //   addLine(collatzNumber);
+  // }
+  if (typeof Number(responsInput.value) === 'number') {
+    collatzNumber = Number(responsInput.value);
+    collatzEquation += String(collatzNumber);
+
+    while (collatzNumber !== 1) {
+      if (collatzNumber % 2 === 0) {
+        collatzNumber = collatzNumber / 2;
+        collatzEquation += ' -> ';
+        collatzEquation += String(collatzNumber);
+      } else {
+        collatzNumber = collatzNumber * 3 + 1;
+        collatzEquation += ' -> ';
+        collatzEquation += String(collatzNumber);
+      }
+    }
+    addLineCollatz(collatzEquation);
+    collatzEquation = '';
+  }
+};

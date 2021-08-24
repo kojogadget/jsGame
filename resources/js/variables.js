@@ -6,6 +6,8 @@ const player = {};
 // Variables
 let response = 0;
 let line = 1;
+let collatzNumber = 0;
+let collatzEquation = '';
 
 // Arrays
 const magicAnswer = [
