@@ -16,20 +16,6 @@ collatzBtn.addEventListener('click', function () {
 });
 
 const collatz = function () {
-  // if (typeof Number(responsInput.value) === 'number') {
-  //   collatzNumber = Number(responsInput.value);
-
-  //   while (collatzNumber !== 1) {
-  //     if (collatzNumber % 2 === 0) {
-  //       addLine(collatzNumber);
-  //       collatzNumber = collatzNumber / 2;
-  //     } else {
-  //       addLine(collatzNumber);
-  //       collatzNumber = collatzNumber * 3 + 1;
-  //     }
-  //   }
-  //   addLine(collatzNumber);
-  // }
   if (typeof Number(responsInput.value) === 'number') {
     collatzNumber = Number(responsInput.value);
     collatzEquation += String(collatzNumber);
@@ -47,5 +33,7 @@ const collatz = function () {
     }
     addLineCollatz(collatzEquation);
     collatzEquation = '';
+  } else {
+    addLine('That is not a number...');
   }
 };
