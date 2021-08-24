@@ -5,6 +5,7 @@ const exit = function () {
     messageSection.classList.remove('m8b');
   } else if (messageSection.classList.contains('collatz')) {
     messageSection.classList.remove('collatz');
+    responsInput.type = 'text';
   }
 
   let exitText = [
@@ -20,6 +21,7 @@ const exit = function () {
   addLine(` `);
   addLine(` `);
   addLine(exitText[response]);
+  responsInput.placeholder = `Command`;
   responsSection.classList.add('hidden');
   optionsSection.classList.remove('hidden');
   messageSection.classList.remove('active');

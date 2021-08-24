@@ -13,27 +13,24 @@ collatzBtn.addEventListener('click', function () {
   addLine(' ');
   addLine('Try it out:');
   responsInput.placeholder = `Number`;
+  responsInput.type = 'number';
 });
 
 const collatz = function () {
-  if (typeof Number(responsInput.value) === 'number') {
-    collatzNumber = Number(responsInput.value);
-    collatzEquation += String(collatzNumber);
+  collatzNumber = Number(responsInput.value);
+  collatzEquation += String(collatzNumber);
 
-    while (collatzNumber !== 1) {
-      if (collatzNumber % 2 === 0) {
-        collatzNumber = collatzNumber / 2;
-        collatzEquation += ' -> ';
-        collatzEquation += String(collatzNumber);
-      } else {
-        collatzNumber = collatzNumber * 3 + 1;
-        collatzEquation += ' -> ';
-        collatzEquation += String(collatzNumber);
-      }
+  while (collatzNumber !== 1) {
+    if (collatzNumber % 2 === 0) {
+      collatzNumber = collatzNumber / 2;
+      collatzEquation += ' -> ';
+      collatzEquation += String(collatzNumber);
+    } else {
+      collatzNumber = collatzNumber * 3 + 1;
+      collatzEquation += ' -> ';
+      collatzEquation += String(collatzNumber);
     }
-    addLineCollatz(collatzEquation);
-    collatzEquation = '';
-  } else {
-    addLine('That is not a number...');
   }
+  addLineCollatz(collatzEquation);
+  collatzEquation = '';
 };
