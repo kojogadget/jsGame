@@ -5,3 +5,5 @@ This projekt is to collect different interaction methods by coding everything fr
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f0eceb79-be25-45dd-bd25-167364f418fe/deploy-status)](https://app.netlify.com/sites/kojogadget-jsgame/deploys)
 
 # NOT FINNISHED :)
+
+Only the Magic 8 Ball and Collatz are working at this time.
