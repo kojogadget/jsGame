@@ -4,18 +4,18 @@ const responseSection = document.querySelector(
 )! as HTMLInputElement;
 const optionsSection = document.querySelector('.options')! as HTMLInputElement;
 
-export const player: {
-  name?: string;
-  age?: number;
-} = {
+/////////////////////////////////////////////////////////////////////////////////////
+
+export const player = {
   name: '',
-};
 
-export const addName = function (addLine: any) {
-  player.name = responseInput.value;
-  responseInput.value = '';
+  addName: function () {
+    player.name = responseInput.value;
+    responseInput.value = '';
 
-  addLine(`Welcome, ${player.name}! What program do you want to try?`);
-  responseSection.classList.add('hidden');
-  optionsSection.classList.remove('hidden');
+    responseSection.classList.toggle('hidden');
+    optionsSection.classList.toggle('hidden');
+
+    return `Welcome, ${player.name}! What program do you want to try?`;
+  },
 };

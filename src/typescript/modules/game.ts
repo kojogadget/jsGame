@@ -1,7 +1,8 @@
 export const game = {
+  state: 'name',
   addLine: function (text: string) {
-    let ul = document.querySelector('.message__list')! as HTMLInputElement;
-    let li = document.createElement('li');
+    const ul = document.querySelector('.message__list')! as HTMLInputElement;
+    const li = document.createElement('li');
 
     text !== ' '
       ? li.appendChild(document.createTextNode('> ' + text))

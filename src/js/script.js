@@ -7,9 +7,12 @@ const collatzBtn = document.getElementById('collatz');
 const messageSection = document.querySelector('.message');
 const messageActive = document.querySelector('.text-box');
 const exitBtn = document.querySelector('.exit');
-import { addName } from './modules/player.js';
+import { player } from './modules/player.js';
 import { game } from './modules/game.js';
 responseBtn.addEventListener('click', function (e) {
     e.preventDefault();
-    addName(game.addLine);
+    if (game.state === 'name') {
+        game.addLine(player.addName());
+        game.state = 'options';
+    }
 });

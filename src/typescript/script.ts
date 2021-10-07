@@ -20,11 +20,13 @@ const messageActive = document.querySelector('.text-box');
 const exitBtn = document.querySelector('.exit');
 
 import { player } from './modules/player.js';
-import { addName } from './modules/player.js';
 import { game } from './modules/game.js';
 
 responseBtn.addEventListener('click', function (e) {
   e.preventDefault();
 
-  addName(game.addLine);
+  if (game.state === 'name') {
+    game.addLine(player.addName());
+    game.state = 'options';
+  }
 });
