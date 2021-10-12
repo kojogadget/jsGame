@@ -1,3 +1,12 @@
+const responseInput = document.getElementById('command')! as HTMLInputElement;
+const responseSection = document.querySelector(
+  '.response'
+)! as HTMLInputElement;
+const optionsSection = document.querySelector('.options')! as HTMLInputElement;
+const exitBtn = document.querySelector('.exit')! as HTMLInputElement;
+
+import { player } from './player.js';
+
 export const game = {
   state: 'name',
   options: {
@@ -56,5 +65,27 @@ export const game = {
       : li.appendChild(document.createTextNode(text));
     li.setAttribute('class', 'message__text--3');
     ul.appendChild(li);
+  },
+
+  exit: function () {
+    responseInput.placeholder = `Command`;
+    optionsSection.classList.toggle('hidden');
+    responseSection.classList.toggle('hidden');
+    exitBtn.classList.toggle('hidden');
+    game.state = 'options';
+
+    const exitText = [
+      `Do you wish to try something else?`,
+      `Okay ${player.name}, what's next?`,
+      `Lets do another one!`,
+      `Are you done?`,
+    ];
+    const response = Math.trunc(Math.random() * exitText.length);
+    responseInput.type = 'string';
+
+    game.addLineEmpty();
+    game.addLineEmpty();
+    game.addLineEmpty();
+    game.addLine(exitText[response]);
   },
 };

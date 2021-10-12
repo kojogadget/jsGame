@@ -1,10 +1,8 @@
 const responseInput = document.getElementById('command');
-const responseBtn = document.querySelector('.response__btn');
 const responseSection = document.querySelector('.response');
 const optionsSection = document.querySelector('.options');
 const exitBtn = document.querySelector('.exit');
 import { game } from './game.js';
-import { player } from './player.js';
 export const collatz = {
     number: 0,
     equation: '',
@@ -22,11 +20,6 @@ export const collatz = {
         game.addLine('Try it out:');
         responseInput.placeholder = `Number`;
         responseInput.type = 'number';
-        responseBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            collatz.action();
-        });
-        exitBtn.addEventListener('click', collatz.exit);
     },
     action: function () {
         if (+responseInput.value > 0) {
@@ -52,22 +45,5 @@ export const collatz = {
         else {
             return game.addLine('The number must be positive..');
         }
-    },
-    exit: function () {
-        responseInput.placeholder = `Command`;
-        optionsSection.classList.toggle('hidden');
-        responseSection.classList.toggle('hidden');
-        exitBtn.classList.toggle('hidden');
-        const exitText = [
-            `Do you wish to try something else?`,
-            `Okay ${player.name}, what's next?`,
-            `Lets do another one!`,
-            `Are you done?`,
-        ];
-        const response = Math.trunc(Math.random() * exitText.length);
-        game.addLineEmpty();
-        game.addLineEmpty();
-        game.addLineEmpty();
-        game.addLine(exitText[response]);
     },
 };

@@ -1,18 +1,7 @@
-// Text input section
-const responseInput = document.getElementById('command')! as HTMLInputElement;
-const responseSection = document.querySelector(
-  '.response'
-)! as HTMLInputElement;
 const responseBtn = document.querySelector(
   '.response__btn'
 )! as HTMLInputElement;
-
-// Message section
-const messageSection = document.querySelector('.message');
-const messageActive = document.querySelector('.text-box');
-
-// Exit button
-const exitBtn = document.querySelector('.exit');
+const exitBtn = document.querySelector('.exit')! as HTMLInputElement;
 
 import { game } from './modules/game.js';
 import { player } from './modules/player.js';
@@ -31,30 +20,43 @@ responseBtn.addEventListener('click', function (e) {
     game.addLine(player.addName());
     game.state = 'options';
   }
+  if (game.state === 'm8b') {
+    m8b.action();
+  }
+  if (game.state === 'collatz') {
+    collatz.action();
+  }
+});
+
+exitBtn.addEventListener('click', game.exit);
+
+document.documentElement.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && game.state !== 'options' && game.state !== 'name')
+    game.exit();
+
+  if (e.key === '1' && game.state === 'options') ttt.play();
+  if (e.key === '2' && game.state === 'options') inventory.play();
+  if (e.key === '3' && game.state === 'options') m8b.play();
+  if (e.key === '4' && game.state === 'options') birthdays.play();
+  if (e.key === '5' && game.state === 'options') collatz.play();
+  if (e.key === '6' && game.state === 'options') guess.play();
+  if (e.key === '7' && game.state === 'options') draw.play();
 });
 
 Object.entries(game.options).forEach(([key, option]) => {
   option.addEventListener('click', function (e) {
-    if (key === 'ttt') {
-      ttt.play();
-    }
-    if (key === 'inventory') {
-      inventory.play();
-    }
-    if (key === 'm8b') {
-      m8b.play();
-    }
-    if (key === 'birthdays') {
-      birthdays.play();
-    }
-    if (key === 'collatz') {
-      collatz.play();
-    }
-    if (key === 'guess') {
-      guess.play();
-    }
-    if (key === 'draw') {
-      draw.play();
-    }
+    if (key === 'ttt') ttt.play();
+
+    if (key === 'inventory') inventory.play();
+
+    if (key === 'm8b') m8b.play();
+
+    if (key === 'birthdays') birthdays.play();
+
+    if (key === 'collatz') collatz.play();
+
+    if (key === 'guess') guess.play();
+
+    if (key === 'draw') draw.play();
   });
 });

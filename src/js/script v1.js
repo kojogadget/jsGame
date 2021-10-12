@@ -23,7 +23,7 @@ const magicAnswer = [
   'Maybe',
   'Do you need a hug?',
   'Think about it..',
-  'Hysj',
+  'Hush!',
   'Ew!',
   'What is your point? Stupid..',
   'k',
