@@ -1,0 +1,18 @@
+.ttt {
+  &__game {
+    display: grid;
+    grid-template-columns: 6rem 6rem 6rem;
+    grid-template-rows: 6rem 6rem 6rem;
+    grid-gap: 0.8rem;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 6rem;
+    color: $color-black;
+    background-color: rgba($color-white, 0.2);
+  }
+}
