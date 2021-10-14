@@ -9,14 +9,13 @@
 @import 'components/exit';
 @import 'components/magic8ball';
 @import 'components/textbox';
+@import 'components/ttt';
 
 @import 'layout/grid';
 @import 'layout/header';
 @import 'layout/message';
 @import 'layout/options';
 @import 'layout/response';
-
-@import 'components/ttt';
 
 .hidden {
   display: none;
