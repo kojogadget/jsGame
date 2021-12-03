@@ -1,0 +1,30 @@
+.message {
+  max-height: 100%;
+  width: 100%;
+  max-width: 150rem;
+  overflow-y: hidden;
+
+  display: grid;
+  align-content: end;
+  grid-template-rows: minmax(0, 30rem);
+
+  &__list {
+    height: 100%;
+    width: 100%;
+    max-width: 150rem;
+    justify-self: center;
+
+    border-radius: 3px;
+    list-style: none;
+
+    display: grid;
+    grid-auto-rows: min-content;
+    align-content: end;
+  }
+
+  &__text {
+    margin-top: 2.5rem;
+    max-width: 100rem;
+    overflow: visible;
+  }
+}
