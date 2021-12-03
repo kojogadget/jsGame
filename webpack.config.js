@@ -22,7 +22,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'mrKGB',
+      title: 'jsGame',
       filename: 'index.html',
       template: './src/temp.html',
     }),

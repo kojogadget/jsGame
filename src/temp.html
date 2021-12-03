@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>The Game</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
 
   <body class="container">
     <h1 class="header--1">The Game</h1>
 
     <div class="text-box">
-      <button class="exit hidden">
+      <!-- <button class="exit hidden">
         <svg class="exit__icon">
           <use xlink:href="img/sprite.svg#icon-cross"></use>
         </svg>
-      </button>
+      </button> -->
 
       <div class="message">
         <ul class="message__list">
@@ -25,46 +25,48 @@
       </div>
     </div>
 
-    <ul class="options hidden">
-      <li class="options__item options__item--1">
-        <button class="options__btn btn" id="tictactoe">Tic Tac Toe</button>
-      </li>
-      <li class="options__item options__item--2">
-        <button class="options__btn btn" id="inventorycheck">
-          Inventory Check
-        </button>
-      </li>
-      <li class="options__item options__item--3">
-        <button class="options__btn btn" id="magic8ball">Magic 8 Ball</button>
-      </li>
-      <li class="options__item options__item--4">
-        <button class="options__btn btn" id="birthdays">Birthdays</button>
-      </li>
-      <li class="options__item options__item--5">
-        <button class="options__btn btn" id="collatz">Collatz</button>
-      </li>
-      <li class="options__item options__item--6">
-        <button class="options__btn btn" id="guessthenumber">
-          Guess The Number
-        </button>
-      </li>
-      <li class="options__item options__item--7">
-        <button class="options__btn btn" id="drawsomething">
-          Draw Something
-        </button>
-      </li>
-    </ul>
+    <div class="option">
+      <ul class="options hidden">
+        <li class="options__item options__item--1">
+          <button class="options__btn btn" id="tictactoe">Tic Tac Toe</button>
+        </li>
+        <li class="options__item options__item--2">
+          <button class="options__btn btn" id="inventorycheck">
+            Inventory Check
+          </button>
+        </li>
+        <li class="options__item options__item--3">
+          <button class="options__btn btn" id="magic8ball">Magic 8 Ball</button>
+        </li>
+        <li class="options__item options__item--4">
+          <button class="options__btn btn" id="birthdays">Birthdays</button>
+        </li>
+        <li class="options__item options__item--5">
+          <button class="options__btn btn" id="collatz">Collatz</button>
+        </li>
+        <li class="options__item options__item--6">
+          <button class="options__btn btn" id="guessthenumber">
+            Guess The Number
+          </button>
+        </li>
+        <li class="options__item options__item--7">
+          <button class="options__btn btn" id="drawsomething">
+            Draw Something
+          </button>
+        </li>
+      </ul>
 
-    <form class="response">
-      <input
-        type="text"
-        class="response__text"
-        placeholder="Command"
-        id="command"
-        autocomplete="off"
-        autofocus
-      />
-      <button class="response__btn btn">&rarr;</button>
-    </form>
+      <form class="response">
+        <input
+          type="text"
+          class="response__text"
+          placeholder="Command"
+          id="command"
+          autocomplete="off"
+          autofocus
+        />
+        <button class="response__btn btn">&rarr;</button>
+      </form>
+    </div>
   </body>
 </html>
