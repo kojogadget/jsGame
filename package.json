@@ -1,27 +1,35 @@
 {
-  "name": "game",
+  "name": "jsGame",
   "version": "1.0.0",
-  "description": "Converting a simple game from Python to html/css/js",
+  "description": "A collection of simple JS games in one main",
   "browserslist": "last 10 versions",
-  "main": "index.js",
+  "default": "index.html",
   "scripts": {
-    "watch:sass": "node-sass src/sass/main.scss src/css/style.css -w",
-    "watch:ts": "tsc -w",
-    "devserver": "live-server",
-    "start": "npm-run-all --parallel devserver watch:sass watch:ts",
-    "compile:sass": "node-sass src/sass/main.scss src/css/style.comp.css",
-    "prefix:css": "postcss src/css/style.comp.css --use autoprefixer -o src/css/style.prefix.css",
-    "compress:css": "node-sass src/css/style.prefix.css src/css/style.css --output-style compressed",
-    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+    "start": "webpack serve",
+    "build": "webpack --mode=production"
   },
   "author": "Kojogadget",
   "license": "ISC",
+  "babel": {
+    "presets": ["@babel/typescript", ["@babel/env", { "modules": false }]]
+  },
   "devDependencies": {
-    "autoprefixer": "^10.3.1",
-    "concat": "^1.0.3",
-    "node-sass": "^6.0.0",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.3.6",
-    "postcss-cli": "^8.3.1"
-  }
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "loader": "^2.1.1",
+    "mini-css-extract-plugin": "^2.4.5",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.3.0",
+    "source-map": "^0.7.3",
+    "style-loader": "^3.3.1",
+    "typescript": "^4.5.2",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  },
+  "dependencies": {}
 }
