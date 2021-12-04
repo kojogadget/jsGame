@@ -1,5 +1,3 @@
-import greetingView from './greetingView';
-
 export default class View {
   _parentElement: any;
   _generateMarkup: any;
@@ -7,5 +5,9 @@ export default class View {
   renderLine() {
     const markUp = this._generateMarkup();
     this._parentElement.insertAdjacentHTML('beforeend', markUp);
+  }
+
+  _clear() {
+    this._parentElement.innerHTML = '';
   }
 }

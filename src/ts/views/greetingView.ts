@@ -6,6 +6,8 @@ class GreetingView extends View {
     this._parentElement = document.querySelector('.text-box');
 
     this._generateMarkup = function () {
+      this._clear();
+
       return `
       <div class="message">
         <ul class="message__list">
