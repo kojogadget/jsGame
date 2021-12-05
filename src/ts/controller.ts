@@ -3,6 +3,7 @@ import * as model from './model';
 import introView from './views/introView';
 import interactionView from './views/interactionView';
 import greetingView from './views/greetingView';
+import gameView from './views/gameView';
 
 const controlInit = async function () {
   introView.render();
@@ -12,7 +13,6 @@ const controlName = function () {
   if (model.state.name) return;
 
   const name = greetingView.getName();
-  console.log(name);
   if (!name) return;
   model.state.name = name;
 
@@ -20,8 +20,30 @@ const controlName = function () {
   interactionView.toggleInteraction();
 };
 
+const controlPickGame = function (chosenGame: string) {
+  const game = model.games.find(g => g.id === chosenGame);
+
+  if (!game) return;
+
+  gameView.renderHeading(game?.heading);
+  gameView.render(game?.intro);
+
+  gameView.initGame(chosenGame);
+  model.state.active = true;
+
+  interactionView.toggleInteraction();
+};
+
+const controlExit = function () {
+  model.state.active = false;
+
+  interactionView.toggleInteraction();
+};
+
 const init = function () {
   introView.addHandlerIntro(controlInit);
   greetingView.addHandlerName(controlName);
+  gameView.addHandlerOptions(controlPickGame);
+  gameView.addHandlerExit(controlExit);
 };
 init();

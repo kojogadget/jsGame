@@ -15,6 +15,7 @@ class IntroView extends View {
   }
 
   addHandlerIntro(handler: any) {
+    this._renderExit();
     window.addEventListener('load', function () {
       handler();
     });
