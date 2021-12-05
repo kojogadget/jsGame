@@ -4,6 +4,7 @@ import introView from './views/introView';
 import interactionView from './views/interactionView';
 import greetingView from './views/greetingView';
 import gameView from './views/gameView';
+import resetView from './views/resetView';
 
 const controlInit = async function () {
   introView.render();
@@ -38,6 +39,9 @@ const controlExit = function () {
   model.state.active = false;
 
   interactionView.toggleInteraction();
+
+  resetView.renderEmpty();
+  resetView.render(model.state.name);
 };
 
 const init = function () {

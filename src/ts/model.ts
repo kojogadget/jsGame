@@ -25,3 +25,12 @@ export const games = [
     ],
   },
 ];
+
+// export const lines = {
+//   reset: [
+//     `Do you wish to try something else?`,
+//     `Okay ${state.name}, what's next?`,
+//     `Lets do another one!`,
+//     `Are you done?`,
+//   ],
+// };

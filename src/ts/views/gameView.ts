@@ -32,6 +32,7 @@ class GameView extends View {
       const btn = press.closest('.exit')! as HTMLElement;
       if (!btn) return;
       btn.classList.toggle('hidden');
+
       handler();
     });
   }

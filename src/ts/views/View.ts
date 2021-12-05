@@ -33,6 +33,14 @@ export default class View {
       ?.insertAdjacentHTML('afterbegin', markUp);
   }
 
+  renderEmpty() {
+    const markUp = `
+        <li class="message__text">&nbsp;</li>
+        <li class="message__text">&nbsp;</li>
+            `;
+    this._parentElement.insertAdjacentHTML('beforeend', markUp);
+  }
+
   _clear() {
     this._parentElement.innerHTML = '';
   }
