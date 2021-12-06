@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const loader = require('sass-loader');
 
 module.exports = {
   mode: 'development',
@@ -36,7 +37,23 @@ module.exports = {
       {
         test: /\.scss$/,
         exclude: /(node_modules)/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  require('autoprefixer')({
+                    overrideBrowserslist: ['last 5 versions', 'ie >9'],
+                  }),
+                ],
+              },
+            },
+          },
+          'sass-loader',
+        ],
       },
       {
         test: /\.(ico|png|jpg|jpeg|gif)$/,
