@@ -1,6 +1,6 @@
 # jsGame
 
-This project is to collect different interaction methods by coding everything from scratch. The game is based on HTML5, CSS3 and JavaScrips. It contains different different mini-games collected in one master-game.
+This project is to collect of different interactive games where everything is coded from scratch. The game is based on HTML5, Sass and TypeScript. It contains different mini-games collected in one master-project.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f0eceb79-be25-45dd-bd25-167364f418fe/deploy-status)](https://app.netlify.com/sites/kojogadget-jsgame/deploys)
 
