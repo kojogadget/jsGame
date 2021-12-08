@@ -1,4 +1,5 @@
 import icon from '../../img/SVG/cross.svg';
+import { TYPING_SPEED } from '../config';
 
 export default class View {
   _parentElement: any;
@@ -52,7 +53,7 @@ export default class View {
 
   _writingText(markUp: string, position: HTMLElement) {
     let textPosition = 0;
-    const speed = 20;
+    const speed = TYPING_SPEED;
 
     function write() {
       if (textPosition < markUp.length) {
