@@ -20,7 +20,6 @@ const controlName = function () {
   greetingView.render(model.state.name);
 
   interactionView.renderOption();
-  greetingView.setWindow();
 };
 
 const controlPickGame = function (chosenGame: string) {
@@ -32,7 +31,6 @@ const controlPickGame = function (chosenGame: string) {
   gameView.render(game.intro);
 
   interactionView.setInteraction(chosenGame);
-  gameView.setWindow();
 };
 
 const controlExit = function () {
@@ -40,7 +38,6 @@ const controlExit = function () {
 
   resetView.render('', 'empty');
   resetView.render(model.state.name);
-  resetView.setWindow();
 };
 
 const init = function () {

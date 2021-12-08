@@ -13,7 +13,9 @@ export default class View {
   render(data: string = '', type: string = '') {
     if (type === 'heading') {
       const markUp = this._generateHeading(data);
-      return this._parentElement.insertAdjacentHTML('beforeend', markUp);
+      this._parentElement.insertAdjacentHTML('beforeend', markUp);
+      this._setWindow();
+      return;
     }
 
     if (type === 'empty') {
@@ -21,19 +23,45 @@ export default class View {
         <li class="message__text">&nbsp;</li>
         <li class="message__text">&nbsp;</li>
             `;
-      return this._parentElement.insertAdjacentHTML('beforeend', markUp);
+      this._parentElement.insertAdjacentHTML('beforeend', markUp);
+      this._setWindow();
+      return;
     }
 
+    const id = new Date().toISOString().slice(-12);
     const markUp = this._generateMarkup(data);
-    this._parentElement.insertAdjacentHTML('beforeend', markUp);
+    this._parentElement.insertAdjacentHTML(
+      'beforeend',
+      `
+      <li class="message__text" id="${id}"></li>
+          `
+    );
+    const pos = document.getElementById(id)! as HTMLElement;
+
+    this._setWindow();
+    this._writingText(markUp, pos);
   }
 
-  setWindow() {
+  _setWindow() {
     const container = document.querySelector(
       '.text-box__container'
     )! as HTMLElement;
 
     container.scrollTo(0, container.scrollHeight);
+  }
+
+  _writingText(markUp: string, position: HTMLElement) {
+    let textPosition = 0;
+    const speed = 20;
+
+    function write() {
+      if (textPosition < markUp.length) {
+        position.innerHTML += markUp.charAt(textPosition);
+        textPosition++;
+        setTimeout(write, speed);
+      }
+    }
+    write();
   }
 
   _renderExit() {

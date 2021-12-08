@@ -12,9 +12,7 @@ class GameView extends View {
     };
 
     this._generateMarkup = function (data: string) {
-      return `
-                <td class="message__text">> ${data}</td>
-          `;
+      return `> ${data}`;
     };
   }
 

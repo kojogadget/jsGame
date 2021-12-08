@@ -20,8 +20,6 @@ body {
 }
 
 .message {
-  list-style: none;
-
   &__text {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -29,9 +27,6 @@ body {
     letter-spacing: 0.25rem;
     font-size: 1.6rem;
     overflow: hidden;
-    white-space: nowrap;
-    -webkit-animation: typing 1s steps(30, end);
-    animation: typing 1s steps(30, end);
 
     &--2 {
       display: -webkit-box;

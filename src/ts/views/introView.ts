@@ -8,9 +8,7 @@ class IntroView extends View {
     this._generateMarkup = function () {
       this._clear();
 
-      return `
-                <td class="message__text">> Hi! What is your name?</td>
-          `;
+      return `> Hi! What is your name?`;
     };
   }
 

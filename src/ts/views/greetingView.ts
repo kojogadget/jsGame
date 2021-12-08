@@ -6,11 +6,9 @@ class GreetingView extends View {
     this._parentElement = document.querySelector('.message__list');
 
     this._generateMarkup = function (data: object) {
-      return `
-          <td class="message__text">> Welcome, ${
-            data ? data : 'Mr X'
-          }! What program do you want to try?</td>
-          `;
+      return `> Welcome, ${
+        data ? data : 'Mr X'
+      }! What program do you want to try?`;
     };
   }
 
