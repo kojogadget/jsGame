@@ -10,14 +10,30 @@ export default class View {
     '.response__text'
   )! as HTMLInputElement;
 
-  render(data: string = '') {
+  render(data: string = '', type: string = '') {
+    if (type === 'heading') {
+      const markUp = this._generateHeading(data);
+      return this._parentElement.insertAdjacentHTML('beforeend', markUp);
+    }
+
+    if (type === 'empty') {
+      const markUp = `
+        <li class="message__text">&nbsp;</li>
+        <li class="message__text">&nbsp;</li>
+            `;
+      return this._parentElement.insertAdjacentHTML('beforeend', markUp);
+    }
+
     const markUp = this._generateMarkup(data);
     this._parentElement.insertAdjacentHTML('beforeend', markUp);
   }
 
-  renderHeading(data: string = '') {
-    const markUp = this._generateHeading(data);
-    this._parentElement.insertAdjacentHTML('beforeend', markUp);
+  setWindow() {
+    const container = document.querySelector(
+      '.text-box__container'
+    )! as HTMLElement;
+
+    container.scrollTo(0, container.scrollHeight);
   }
 
   _renderExit() {
@@ -31,14 +47,6 @@ export default class View {
     document
       .querySelector('.text-box')
       ?.insertAdjacentHTML('afterbegin', markUp);
-  }
-
-  renderEmpty() {
-    const markUp = `
-        <li class="message__text">&nbsp;</li>
-        <li class="message__text">&nbsp;</li>
-            `;
-    this._parentElement.insertAdjacentHTML('beforeend', markUp);
   }
 
   _clear() {

@@ -15,7 +15,7 @@ class ResetView extends View {
       const resetNumber = Math.trunc(Math.random() * reset.length);
 
       return `
-                <li class="message__text">> ${reset[resetNumber]}</li>
+                <td class="message__text">> ${reset[resetNumber]}</td>
           `;
     };
   }

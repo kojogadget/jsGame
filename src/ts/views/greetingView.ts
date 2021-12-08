@@ -7,9 +7,9 @@ class GreetingView extends View {
 
     this._generateMarkup = function (data: object) {
       return `
-          <li class="message__text">> Welcome, ${
+          <td class="message__text">> Welcome, ${
             data ? data : 'Mr X'
-          }! What program do you want to try?</li>
+          }! What program do you want to try?</td>
           `;
     };
   }

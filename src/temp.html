@@ -12,16 +12,18 @@
     <h1 class="header--1">The Game</h1>
 
     <div class="text-box">
+      <div class="text-box__container">
       <!-- <button class="exit hidden">
         <svg class="exit__icon">
           <use xlink:href="img/sprite.svg#icon-cross"></use>
         </svg>
       </button> -->
 
-      <div class="message">
-        <ul class="message__list">
+      <table class="message">
+        <tr class="message__list">
           <!-- <li class="message__text">> Hi! What is your name?</li> -->
-        </ul>
+        </tr>
+      </table>
       </div>
     </div>
 
@@ -38,9 +40,9 @@
         <li class="options__item">
           <button class="options__btn btn" data-game="magic8Ball">Magic 8 Ball</button>
         </li>
-        <li class="options__item">
+        <!-- <li class="options__item">
           <button class="options__btn btn" data-game="birthdays">Birthdays</button>
-        </li>
+        </li> -->
         <li class="options__item">
           <button class="options__btn btn" data-game="collatz">Collatz</button>
         </li>
@@ -49,18 +51,18 @@
             Guess The Number
           </button>
         </li>
-        <li class="options__item">
+        <!-- <li class="options__item">
           <button class="options__btn btn" data-game="drawsomething">
             Draw Something
           </button>
-        </li>
+        </li> -->
       </ul>
 
       <form class="response">
         <input
           type="text"
           class="response__text"
-          placeholder="Command"
+          placeholder="Name"
           autocomplete="off"
           autofocus
         />

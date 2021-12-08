@@ -7,13 +7,13 @@ class GameView extends View {
 
     this._generateHeading = function (data: string) {
       return `
-                <li class="header--2">${data}</li>
+                <td class="header--2">${data}</td>
           `;
     };
 
     this._generateMarkup = function (data: string) {
       return `
-                <li class="message__text">> ${data}</li>
+                <td class="message__text">> ${data}</td>
           `;
     };
   }
@@ -22,7 +22,14 @@ class GameView extends View {
     document.querySelector('.options')?.addEventListener('click', function (e) {
       const press = e.target! as HTMLElement;
       const btn = press.closest('.options__btn')! as HTMLElement;
+
+      if (!btn) return;
+
       const { game } = btn.dataset;
+
+      const exitBtn = document.querySelector('.exit')! as HTMLElement;
+      exitBtn.classList.toggle('hidden');
+
       handler(game);
     });
   }
@@ -38,9 +45,6 @@ class GameView extends View {
   }
 
   initGame(game: string) {
-    const exitBtn = document.querySelector('.exit')! as HTMLElement;
-    exitBtn.classList.toggle('hidden');
-
     if (game === 'magic8Ball') this._responseInput.placeholder = 'Question';
   }
 }

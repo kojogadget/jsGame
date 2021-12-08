@@ -18,7 +18,9 @@ const controlName = function () {
   model.state.name = name;
 
   greetingView.render(model.state.name);
-  interactionView.toggleInteraction();
+
+  interactionView.renderOption();
+  greetingView.setWindow();
 };
 
 const controlPickGame = function (chosenGame: string) {
@@ -26,22 +28,19 @@ const controlPickGame = function (chosenGame: string) {
 
   if (!game) return;
 
-  gameView.renderHeading(game?.heading);
-  gameView.render(game?.intro);
+  gameView.render(game.heading, 'heading');
+  gameView.render(game.intro);
 
-  gameView.initGame(chosenGame);
-  model.state.active = true;
-
-  interactionView.toggleInteraction();
+  interactionView.setInteraction(chosenGame);
+  gameView.setWindow();
 };
 
 const controlExit = function () {
-  model.state.active = false;
+  interactionView.renderOption();
 
-  interactionView.toggleInteraction();
-
-  resetView.renderEmpty();
+  resetView.render('', 'empty');
   resetView.render(model.state.name);
+  resetView.setWindow();
 };
 
 const init = function () {

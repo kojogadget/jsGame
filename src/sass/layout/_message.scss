@@ -1,18 +1,16 @@
 .message {
-  max-height: 100%;
   width: 100%;
   max-width: 150rem;
-  overflow-y: hidden;
+  // overflow-y: scroll;
 
-  display: grid;
-  align-content: end;
-  grid-template-rows: minmax(0, 30rem);
+  // display: grid;
+  // grid-template-rows: minmax(0, 30rem);
 
   &__list {
-    height: 100%;
     width: 100%;
     max-width: 150rem;
     justify-self: center;
+    // overflow-y: auto;
 
     border-radius: 3px;
     list-style: none;
@@ -23,7 +21,7 @@
   }
 
   &__text {
-    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
     max-width: 100rem;
     overflow: visible;
   }

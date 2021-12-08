@@ -1,6 +1,5 @@
 export const state = {
   name: '',
-  active: false,
 };
 
 export const games = [

@@ -9,7 +9,7 @@ class IntroView extends View {
       this._clear();
 
       return `
-                <li class="message__text">> Hi! What is your name?</li>
+                <td class="message__text">> Hi! What is your name?</td>
           `;
     };
   }
