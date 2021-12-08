@@ -1,8 +1,19 @@
 export const state = {
   name: '',
+  active: '',
 };
 
 export const games = [
+  {
+    heading: 'Tic Tac Toe',
+    id: 'tictactoe',
+    intro: 'GAME NOT READY!',
+  },
+  {
+    heading: 'Inventory Check',
+    id: 'inventorycheck',
+    intro: 'GAME NOT READY!',
+  },
   {
     heading: 'Magic 8 Ball',
     id: 'magic8Ball',
@@ -23,13 +34,14 @@ export const games = [
       'k',
     ],
   },
+  {
+    heading: 'Collatz',
+    id: 'collatz',
+    intro: 'GAME NOT READY!',
+  },
+  {
+    heading: 'Guess The Number',
+    id: 'guessthenumber',
+    intro: 'GAME NOT READY!',
+  },
 ];
-
-// export const lines = {
-//   reset: [
-//     `Do you wish to try something else?`,
-//     `Okay ${state.name}, what's next?`,
-//     `Lets do another one!`,
-//     `Are you done?`,
-//   ],
-// };

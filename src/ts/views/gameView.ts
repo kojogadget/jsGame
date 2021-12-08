@@ -31,6 +31,14 @@ class GameView extends View {
       handler(game);
     });
   }
+
+  addHandlerPlay(handler: any) {
+    this._responseForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      handler();
+    });
+  }
+
   addHandlerExit(handler: any) {
     this._textBox.addEventListener('click', function (e) {
       const press = e.target! as HTMLElement;
@@ -44,6 +52,16 @@ class GameView extends View {
 
   initGame(game: string) {
     if (game === 'magic8Ball') this._responseInput.placeholder = 'Question';
+  }
+
+  gameResponse(game: string) {
+    const response = this._responseInput.value;
+    if (!response)
+      return this.render('> You need to type something...', 'custom');
+    this._clearInput();
+    if (game === 'magic8Ball')
+      this._responseInput.placeholder = 'Another question?';
+    return response;
   }
 }
 

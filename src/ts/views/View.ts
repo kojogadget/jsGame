@@ -19,6 +19,22 @@ export default class View {
       return;
     }
 
+    if (type === 'custom') {
+      const id = new Date().toISOString().slice(-12);
+      const markUp = data;
+      this._parentElement.insertAdjacentHTML(
+        'beforeend',
+        `
+      <li class="message__text" id="${id}"></li>
+          `
+      );
+      const pos = document.getElementById(id)! as HTMLElement;
+
+      this._setWindow();
+      this._writingText(markUp, pos);
+      return;
+    }
+
     if (type === 'empty') {
       const markUp = `
         <li class="message__text">&nbsp;</li>

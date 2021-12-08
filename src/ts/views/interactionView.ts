@@ -19,11 +19,21 @@ class InteractionView extends View {
       this._options.classList.toggle('hidden');
   }
 
+  _hideInteraction() {
+    if (!this._responseForm.classList.contains('hidden'))
+      this._responseForm.classList.toggle('hidden');
+    if (!this._options.classList.contains('hidden'))
+      this._options.classList.toggle('hidden');
+  }
+
   setInteraction(mode: string) {
     if (mode === 'magic8Ball') {
       this._responseInput.placeholder = 'Question';
       this._toggleOptionResponse();
+      this._responseInput.focus();
+      return;
     }
+    this._hideInteraction();
   }
 }
 
