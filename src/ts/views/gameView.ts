@@ -54,13 +54,12 @@ class GameView extends View {
     if (game === 'magic8Ball') this._responseInput.placeholder = 'Question';
   }
 
-  gameResponse(game: string) {
+  gameResponse(game: any) {
     const response = this._responseInput.value;
-    if (!response)
-      return this.render('> You need to type something...', 'custom');
+    if (!response) return this.render(game.error, 'custom');
     this._clearInput();
-    if (game === 'magic8Ball')
-      this._responseInput.placeholder = 'Another question?';
+    this._responseInput.placeholder = game.placeholder[1];
+
     return response;
   }
 }

@@ -30,23 +30,21 @@ const controlPickGame = function (chosenGame: string) {
   gameView.render(game.heading, 'heading');
   gameView.render(game.intro);
 
-  interactionView.setInteraction(chosenGame);
+  interactionView.setInteraction(game);
 };
 
 const controlPlay = function () {
   const game = model.games.find(g => g.id === model.state.active);
   if (!game) return;
-  const response = gameView.gameResponse(game.id);
+  const response = gameView.gameResponse(game);
   if (!response) return;
 
-  const answer = game.answers! as Array<string>;
-  const index = Math.trunc(Math.random() * answer.length);
-
-  gameView.render(answer[index]);
+  gameView.render(game.play(response), game.render);
 };
 
 const controlExit = function () {
   interactionView.renderOption();
+  interactionView.resetResponse();
   model.state.active = '';
 
   resetView.render('', 'empty');

@@ -35,6 +35,17 @@ export default class View {
       return;
     }
 
+    if (type === 'quick') {
+      this._parentElement.insertAdjacentHTML(
+        'beforeend',
+        `
+      <li class="message__text">${data}</li>
+          `
+      );
+      this._setWindow();
+      return;
+    }
+
     if (type === 'empty') {
       const markUp = `
         <li class="message__text">&nbsp;</li>
