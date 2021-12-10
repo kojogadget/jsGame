@@ -9,7 +9,7 @@ export const games = [
     id: 'tictactoe',
     intro: 'GAME NOT READY!',
     error: '',
-    render: '',
+    renderType: '',
 
     interaction: '',
     inputType: '',
@@ -24,7 +24,7 @@ export const games = [
     id: 'inventorycheck',
     intro: 'GAME NOT READY!',
     error: '',
-    render: '',
+    renderType: '',
 
     interaction: '',
     inputType: '',
@@ -39,7 +39,7 @@ export const games = [
     id: 'magic8Ball',
     intro: 'Ask me a question!',
     error: '> You need to type something...',
-    render: '',
+    renderType: '',
 
     interaction: 'response',
     inputType: 'text',
@@ -68,11 +68,11 @@ export const games = [
   },
   {
     heading: 'Collatz',
+    subHeading: `Math's simplest impossible problem!<br>If you take a number through this equation the output will always become 1, whatever positive number. The equation will take a even number en divide it by 2, and a odd number will be multiplied by 3 and be added a 1. The result will go through the same process and finally give us 1 as the final result`,
     id: 'collatz',
-    intro: `
-    Math's simplest impossible problem! If you take a number through this equation the output will always become 1, whatever positive number. Try it out :)`,
+    intro: `Try it out :)`,
     error: '> You need to give a number...',
-    render: 'quick',
+    renderType: 'quick',
 
     interaction: 'response',
     inputType: 'number',
@@ -80,19 +80,19 @@ export const games = [
     placeholder: ['Number', 'Try again :)'],
 
     play: function (int: string) {
-      let input = +int;
-      const arr = [input];
+      let num = +int;
+      const result = [num];
 
-      while (input !== 1) {
-        if (input % 2 === 0) {
-          input /= 2;
+      while (num !== 1) {
+        if (num % 2 === 0) {
+          num /= 2;
         } else {
-          input = input * 3 + 1;
+          num = num * 3 + 1;
         }
-        arr.push(input);
+        result.push(num);
       }
 
-      return arr.join(' -> ');
+      return result.join(' -> ');
     },
   },
   {
@@ -100,7 +100,7 @@ export const games = [
     id: 'guessthenumber',
     intro: 'GAME NOT READY!',
     error: '',
-    render: '',
+    renderType: '',
 
     interaction: '',
     inputType: '',

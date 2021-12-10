@@ -19,6 +19,12 @@ export default class View {
       return;
     }
 
+    if (type === 'subHeading') {
+      const markUp = `<li class="message__text--sub">${data}</li>`;
+      this._parentElement.insertAdjacentHTML('beforeend', markUp);
+      return;
+    }
+
     if (type === 'custom') {
       const id = new Date().toISOString().slice(-12);
       const markUp = data;

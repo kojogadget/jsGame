@@ -28,6 +28,7 @@ const controlPickGame = function (chosenGame: string) {
   model.state.active = chosenGame;
 
   gameView.render(game.heading, 'heading');
+  if (game.subHeading) gameView.render(game.subHeading, 'subHeading');
   gameView.render(game.intro);
 
   interactionView.setInteraction(game);
@@ -39,7 +40,7 @@ const controlPlay = function () {
   const response = gameView.gameResponse(game);
   if (!response) return;
 
-  gameView.render(game.play(response), game.render);
+  gameView.render(game.play(response), game.renderType);
 };
 
 const controlExit = function () {
