@@ -26,15 +26,32 @@ class InteractionView extends View {
       this._options.classList.toggle('hidden');
   }
 
+  // NEWrenderOption(data: any) {
+  //   const markUp = data
+  //     .map(
+  //       (game: any) => `<li class="options__item">
+  //   <button class="options__btn btn" data-game="${game.id}">${game.heading}</button>
+  // </li>`
+  //     )
+  //     .join('');
+  //   this._options.innerHTML = '';
+  //   this._options.insertAdjacentHTML('beforeend', markUp);
+  // }
+
   setInteraction(game: any) {
     if (game.interaction === 'response') {
       this._responseInput.placeholder = game.placeholder[0];
       this._responseInput.type = game.inputType;
-      if (game.inputOption)
-        this._responseInput.setAttribute(
-          game.inputOption[0],
-          game.inputOption[1]
-        );
+      if (game.inputOption) {
+        game.inputOption.forEach((_: any, i: number) => {
+          if (i % 2 === 0) {
+            this._responseInput.setAttribute(
+              game.inputOption[i],
+              game.inputOption[i + 1]
+            );
+          }
+        });
+      }
 
       this._toggleOptionResponse();
       this._responseInput.focus();

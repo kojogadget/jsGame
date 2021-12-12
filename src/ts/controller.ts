@@ -30,6 +30,7 @@ const controlPickGame = function (chosenGame: string) {
   gameView.render(game.heading, 'heading');
   if (game.subHeading) gameView.render(game.subHeading, 'subHeading');
   gameView.render(game.intro);
+  if (game.init) game.init();
 
   interactionView.setInteraction(game);
 };
@@ -41,6 +42,10 @@ const controlPlay = function () {
   if (!response) return;
 
   gameView.render(game.play(response), game.renderType);
+
+  if (game.game?.success) {
+    gameView.render('TEST', 'custom');
+  }
 };
 
 const controlExit = function () {

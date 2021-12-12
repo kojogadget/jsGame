@@ -79,8 +79,8 @@ export const games = [
     inputOption: ['min', '1'],
     placeholder: ['Number', 'Try again :)'],
 
-    play: function (int: string) {
-      let num = +int;
+    play: function (input: string) {
+      let num = +input;
       const result = [num];
 
       while (num !== 1) {
@@ -98,16 +98,33 @@ export const games = [
   {
     heading: 'Guess The Number',
     id: 'guessthenumber',
-    intro: 'GAME NOT READY!',
-    error: '',
+    intro: `I'm thinking of a number between 1 and 20. Can you guess the number with 6 attempts? :)`,
+    error: 'You need to give a number...',
     renderType: '',
 
-    interaction: '',
-    inputType: '',
-    placeholder: ['Question', 'Another question'],
+    interaction: 'response',
+    inputType: 'number',
+    inputOption: ['min', '1', 'max', '20'],
+    placeholder: ['Guess', 'Guess again :)'],
 
-    play: function () {
-      return 'NOT READY!';
+    game: { answer: 1, success: false, attemptsRemaining: 6 },
+
+    init: function () {
+      this.game.answer = Math.ceil(Math.random() * 20);
+      this.game.success = false;
+      this.game.attemptsRemaining = 6;
+    },
+
+    play: function (input: string) {
+      const guess = +input;
+
+      if (guess === this.game.answer) {
+        this.game.success = true;
+        return 'Correct! Do you want to try again?';
+      }
+      console.log(this.game.answer);
+
+      return guess < this.game.answer ? 'Too low...' : 'Too high...';
     },
   },
 ];
