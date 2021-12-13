@@ -1,12 +1,12 @@
 {
-  "name": "jsGame",
+  "name": "jsgame",
   "version": "1.0.0",
   "description": "A collection of simple JS games in one main",
   "scripts": {
     "start": "webpack serve",
     "build": "webpack --mode=production"
   },
-  "author": "Kojogadget",
+  "author": "Kjartan Gundersen",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.0",
