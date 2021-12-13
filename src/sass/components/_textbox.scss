@@ -14,6 +14,18 @@
   display: flex;
   justify-content: center;
 
+  @media only screen and (max-width: 1025px) {
+    height: 40vh;
+  }
+
+  @media only screen and (max-height: 750px) {
+    height: 35vh;
+  }
+
+  @media only screen and (max-height: 610px) {
+    height: 25vh;
+  }
+
   &__container {
     width: 100%;
     overflow-y: auto;
