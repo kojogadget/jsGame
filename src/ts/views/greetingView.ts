@@ -23,7 +23,9 @@ class GreetingView extends View {
     const form = this._interaction.querySelector(
       '.response__text'
     )! as HTMLInputElement;
-    const name = form.value;
+    const nameInput = form.value;
+    const name = nameInput.trim();
+    console.log(name);
     this._clearInput();
     return name;
   }
