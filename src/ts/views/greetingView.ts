@@ -25,7 +25,6 @@ class GreetingView extends View {
     )! as HTMLInputElement;
     const nameInput = form.value;
     const name = nameInput.trim();
-    console.log(name);
     this._clearInput();
     return name;
   }
