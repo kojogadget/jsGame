@@ -4,36 +4,37 @@ export const state = {
 };
 
 export const games = [
-  {
-    heading: 'Tic Tac Toe',
-    id: 'tictactoe',
-    intro: 'GAME NOT READY!',
-    error: '',
-    renderType: '',
+  // TODO
+  // {
+  //   heading: 'Tic Tac Toe',
+  //   id: 'tictactoe',
+  //   intro: 'GAME NOT READY!',
+  //   error: '',
+  //   renderType: '',
 
-    interaction: '',
-    inputType: '',
-    placeholder: ['Question', 'Another question'],
+  //   interaction: '',
+  //   inputType: '',
+  //   placeholder: ['Question', 'Another question'],
 
-    play: function () {
-      return 'NOT READY!';
-    },
-  },
-  {
-    heading: 'Inventory Check',
-    id: 'inventorycheck',
-    intro: 'GAME NOT READY!',
-    error: '',
-    renderType: '',
+  //   play: function () {
+  //     return 'NOT READY!';
+  //   },
+  // },
+  // {
+  //   heading: 'Inventory Check',
+  //   id: 'inventorycheck',
+  //   intro: 'GAME NOT READY!',
+  //   error: '',
+  //   renderType: '',
 
-    interaction: '',
-    inputType: '',
-    placeholder: ['Question', 'Another question'],
+  //   interaction: '',
+  //   inputType: '',
+  //   placeholder: ['Question', 'Another question'],
 
-    play: function () {
-      return 'NOT READY!';
-    },
-  },
+  //   play: function () {
+  //     return 'NOT READY!';
+  //   },
+  // },
   {
     heading: 'Magic 8 Ball',
     id: 'magic8Ball',
@@ -110,25 +111,31 @@ export const games = [
 
     game: {
       answer: 1,
-      success: false,
-      attemptsRemaining: 6,
+      complete: false,
+      attempt: 0,
       reset: [{ heading: 'PLAY AGAIN', id: 'play' }],
     },
 
     init: function () {
       this.game.answer = Math.ceil(Math.random() * 20);
-      this.game.success = false;
-      this.game.attemptsRemaining = 6;
+      this.game.complete = false;
+      this.game.attempt = 0;
     },
 
     play: function (input: string) {
       const guess = +input;
 
       if (guess === this.game.answer) {
-        this.game.success = true;
+        this.game.complete = true;
         return 'Correct! Do you want to try again?';
       }
-      console.log(this.game.answer);
+
+      this.game.attempt++;
+
+      if (this.game.attempt === 6) {
+        this.game.complete = true;
+        return `No, the answer is ${this.game.answer}... Do you want to try again?`;
+      }
 
       return guess < this.game.answer ? 'Too low...' : 'Too high...';
     },

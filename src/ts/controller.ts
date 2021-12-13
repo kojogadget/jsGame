@@ -58,7 +58,7 @@ const controlPlay = function () {
   gameView.render(game.play(response), game.renderType);
 
   if (game.interaction === 'response') interactionView.renderResponse(game, 1);
-  if (game.game?.success) {
+  if (game.game?.complete) {
     interactionView.renderOption(game.game.reset);
   }
 };
