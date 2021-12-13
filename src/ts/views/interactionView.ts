@@ -1,73 +1,77 @@
 import View from './View';
 
 class InteractionView extends View {
-  _options = document.querySelector('.options') as HTMLElement;
   constructor() {
     super();
     this._parentElement = document.querySelector('.interaction');
   }
 
-  _toggleOptionResponse() {
-    this._responseForm.classList.toggle('hidden');
-    this._options.classList.toggle('hidden');
+  renderOption(data: any) {
+    const markUp = data
+      .map(
+        (game: any) => `<li class="interaction__item">
+                          <button class="interaction__btn btn" data-game="${game.id}">${game.heading}</button>
+                        </li>`
+      )
+      .join('');
+    this._clear();
+    this._parentElement.insertAdjacentHTML('beforeend', markUp);
   }
 
-  _hideInteraction() {
-    if (!this._responseForm.classList.contains('hidden'))
-      this._responseForm.classList.toggle('hidden');
-    if (!this._options.classList.contains('hidden'))
-      this._options.classList.toggle('hidden');
-  }
+  renderResponse(
+    data: any,
+    placeholderOption: number = 0,
+    btnText: boolean = false
+  ) {
+    const input = this._parentElement.querySelector(
+      '.response__text'
+    )! as HTMLInputElement;
 
-  renderOption() {
-    if (!this._responseForm.classList.contains('hidden'))
-      this._responseForm.classList.toggle('hidden');
-    if (this._options.classList.contains('hidden'))
-      this._options.classList.toggle('hidden');
-  }
+    if (!data) {
+      const markUp = `
+      <div class="response">
+      <input
+          type="text"
+          class="response__text"
+          placeholder="Name"
+          autocomplete="off"
+        />
+      <input type="submit" class="response__btn btn" value="&rarr;"></input>
+      </div>
+      `;
 
-  // NEWrenderOption(data: any) {
-  //   const markUp = data
-  //     .map(
-  //       (game: any) => `<li class="options__item">
-  //   <button class="options__btn btn" data-game="${game.id}">${game.heading}</button>
-  // </li>`
-  //     )
-  //     .join('');
-  //   this._options.innerHTML = '';
-  //   this._options.insertAdjacentHTML('beforeend', markUp);
-  // }
-
-  setInteraction(game: any) {
-    if (game.interaction === 'response') {
-      this._responseInput.placeholder = game.placeholder[0];
-      this._responseInput.type = game.inputType;
-      if (game.inputOption) {
-        game.inputOption.forEach((_: any, i: number) => {
-          if (i % 2 === 0) {
-            this._responseInput.setAttribute(
-              game.inputOption[i],
-              game.inputOption[i + 1]
-            );
-          }
-        });
-      }
-
-      this._toggleOptionResponse();
-      this._responseInput.focus();
+      this._clear();
+      this._parentElement.insertAdjacentHTML('beforeend', markUp);
+      this._focusInput();
       return;
     }
-    this._hideInteraction();
+
+    const markUp = `
+    <div class="response">
+      <input
+          type="${data.inputType}"
+          class="response__text"
+          placeholder="${data.placeholder[placeholderOption]}"
+          autocomplete="off"
+          ${data.inputOption.min ? `min="${data.inputOption.min}"` : ''}
+          ${data.inputOption.max ? `max="${data.inputOption.max}"` : ''}
+        />
+      <input type="submit" class="response__btn btn" value="${
+        btnText ? data.btnValue : '&rarr;'
+      }"></input>
+      </div>
+      `;
+
+    this._clear();
+    this._parentElement.insertAdjacentHTML('beforeend', markUp);
+    this._focusInput();
   }
 
-  resetResponse() {
-    const el = this._responseInput;
-    el.value = '';
-    while (el.attributes.length > 0) el.removeAttribute(el.attributes[0].name);
-    el.setAttribute('type', 'text');
-    el.setAttribute('class', 'response__text');
-    el.setAttribute('placeholder', 'Reset');
-    el.setAttribute('autocomplete', 'off');
+  _focusInput() {
+    const input = this._parentElement.querySelector(
+      '.response__text'
+    )! as HTMLInputElement;
+    input.focus();
   }
 }
 

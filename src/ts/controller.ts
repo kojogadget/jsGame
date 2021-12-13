@@ -8,6 +8,8 @@ import resetView from './views/resetView';
 
 const controlInit = async function () {
   introView.render();
+  interactionView.renderOption(model.games);
+  interactionView.renderResponse(null);
 };
 
 const controlName = function () {
@@ -18,12 +20,24 @@ const controlName = function () {
   model.state.name = name;
 
   greetingView.render(model.state.name);
-  interactionView.renderOption();
+  interactionView.renderOption(model.games);
 };
 
 const controlPickGame = function (chosenGame: string) {
   const game = model.games.find(g => g.id === chosenGame);
-  if (!game) return;
+  if (!game) {
+    const playing = model.state.active;
+    const gameActive = model.games.find(g => g.id === playing);
+    if (!gameActive) return;
+
+    gameView.render(gameActive.intro);
+    if (gameActive.init) gameActive.init();
+
+    if (gameActive.interaction === 'response')
+      interactionView.renderResponse(gameActive);
+
+    return;
+  }
 
   model.state.active = chosenGame;
 
@@ -32,7 +46,7 @@ const controlPickGame = function (chosenGame: string) {
   gameView.render(game.intro);
   if (game.init) game.init();
 
-  interactionView.setInteraction(game);
+  if (game.interaction === 'response') interactionView.renderResponse(game);
 };
 
 const controlPlay = function () {
@@ -43,14 +57,14 @@ const controlPlay = function () {
 
   gameView.render(game.play(response), game.renderType);
 
+  if (game.interaction === 'response') interactionView.renderResponse(game, 1);
   if (game.game?.success) {
-    gameView.render('TEST', 'custom');
+    interactionView.renderOption(game.game.reset);
   }
 };
 
 const controlExit = function () {
-  interactionView.renderOption();
-  interactionView.resetResponse();
+  interactionView.renderOption(model.games);
   model.state.active = '';
 
   resetView.render('', 'empty');

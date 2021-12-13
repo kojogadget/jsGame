@@ -6,10 +6,7 @@ export default class View {
   _generateMarkup: any;
   _generateHeading: any;
   _textBox = document.querySelector('.text-box')! as HTMLElement;
-  _responseForm = document.querySelector('.response')! as HTMLElement;
-  _responseInput = document.querySelector(
-    '.response__text'
-  )! as HTMLInputElement;
+  _interaction = document.querySelector('.interaction')! as HTMLElement;
 
   render(data: string = '', type: string = '') {
     if (type === 'heading') {
@@ -116,6 +113,9 @@ export default class View {
   }
 
   _clearInput() {
-    this._responseInput.value = '';
+    const input = this._interaction.querySelector(
+      '.response__text'
+    )! as HTMLInputElement;
+    input.value = '';
   }
 }

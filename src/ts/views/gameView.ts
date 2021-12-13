@@ -17,23 +17,24 @@ class GameView extends View {
   }
 
   addHandlerOptions(handler: any) {
-    document.querySelector('.options')?.addEventListener('click', function (e) {
+    this._interaction.addEventListener('click', function (e) {
       const press = e.target! as HTMLElement;
-      const btn = press.closest('.options__btn')! as HTMLElement;
+      const btn = press.closest('.interaction__btn')! as HTMLElement;
 
       if (!btn) return;
 
       const { game } = btn.dataset;
 
       const exitBtn = document.querySelector('.exit')! as HTMLElement;
-      exitBtn.classList.toggle('hidden');
+      if (exitBtn.classList.contains('hidden'))
+        exitBtn.classList.remove('hidden');
 
       handler(game);
     });
   }
 
   addHandlerPlay(handler: any) {
-    this._responseForm.addEventListener('submit', function (e) {
+    this._interaction.addEventListener('submit', function (e) {
       e.preventDefault();
       handler();
     });
@@ -50,15 +51,14 @@ class GameView extends View {
     });
   }
 
-  initGame(game: string) {
-    if (game === 'magic8Ball') this._responseInput.placeholder = 'Question';
-  }
-
   gameResponse(game: any) {
-    const response = this._responseInput.value;
+    const input = this._interaction.querySelector(
+      '.response__text'
+    )! as HTMLInputElement;
+
+    const response = input.value;
     if (!response) return this.render(game.error, 'custom');
     this._clearInput();
-    this._responseInput.placeholder = game.placeholder[1];
 
     return response;
   }

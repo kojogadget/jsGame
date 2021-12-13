@@ -13,14 +13,17 @@ class GreetingView extends View {
   }
 
   addHandlerName(handler: any) {
-    this._responseForm.addEventListener('submit', function (e) {
+    this._interaction.addEventListener('submit', function (e) {
       e.preventDefault();
       handler();
     });
   }
 
   getName() {
-    const name = this._responseInput.value;
+    const form = this._interaction.querySelector(
+      '.response__text'
+    )! as HTMLInputElement;
+    const name = form.value;
     this._clearInput();
     return name;
   }

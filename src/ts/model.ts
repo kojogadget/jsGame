@@ -43,6 +43,7 @@ export const games = [
 
     interaction: 'response',
     inputType: 'text',
+    inputOption: {},
     placeholder: ['Question', 'Another question?'],
 
     play: function () {
@@ -76,7 +77,7 @@ export const games = [
 
     interaction: 'response',
     inputType: 'number',
-    inputOption: ['min', '1'],
+    inputOption: { min: '1' },
     placeholder: ['Number', 'Try again :)'],
 
     play: function (input: string) {
@@ -104,10 +105,15 @@ export const games = [
 
     interaction: 'response',
     inputType: 'number',
-    inputOption: ['min', '1', 'max', '20'],
+    inputOption: { min: '1', max: '20' },
     placeholder: ['Guess', 'Guess again :)'],
 
-    game: { answer: 1, success: false, attemptsRemaining: 6 },
+    game: {
+      answer: 1,
+      success: false,
+      attemptsRemaining: 6,
+      reset: [{ heading: 'PLAY AGAIN', id: 'play' }],
+    },
 
     init: function () {
       this.game.answer = Math.ceil(Math.random() * 20);
